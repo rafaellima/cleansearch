@@ -1,6 +1,6 @@
 = cleansearch
 
-Description goes here.
+That gem will allow you to improve your calls to the 
 
 == Contributing to cleansearch
  

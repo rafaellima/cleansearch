@@ -1,9 +1,8 @@
 module CleanSearch
   class Search
     
-    #module MethodMissing
+    module MethodMissing
       
-      # Pretend this is a real implementation
         def find(conditions = {})
         end
 
@@ -24,7 +23,7 @@ module CleanSearch
               super
             end
         end
-     #end
+     end
   end
   
 end
