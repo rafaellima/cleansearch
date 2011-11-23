@@ -1,39 +1,36 @@
 require 'rspec'
 require 'active_record'
 
-ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database => ":memory:")
-ActiveRecord::Base.configurations = true
+ActiveRecord::Base.establish_connection({
+      :adapter => "sqlite3",
+      :dbfile => "users.sqlite",
+      :database => ":memory:"
+})
 
-ActiveRecord::Schema.verbose = false
-ActiveRecord::Schema.define(:version => 1) do
+#begin
+  #ActiveRecord::Schema.drop_table('users')
+#rescue
+  #nil
+#end
 
-  create_table :users do |u|
-    u.datetime :created_at
-    u.datetime :updated_at
-    u.string :name
-    u.string :username
-    u.string :email
+ActiveRecord::Schema.define do
+  create_table "users", :force => true do |t|
+    t.column "name", :string, :limit => 30, :null => false
+    t.column "email", :string, :limit => 30, :null => false
   end
-  
 end
-
-
-  # Requires supporting files with custom matchers and macros, etc,
-  # in ./support/ and its subdirectories.
-  #Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-
 require 'cleansearch'
 
 RSpec.configure do |config|
   config.before(:each) do
     
-    class ::User < ActiveRecord::Base
+    class User < ActiveRecord::Base
     end
     
-    ::User.destroy_all
+    #::User.destroy_all
     
   end
   
@@ -42,6 +39,7 @@ RSpec.configure do |config|
     end
   
 end
+
 
 
 

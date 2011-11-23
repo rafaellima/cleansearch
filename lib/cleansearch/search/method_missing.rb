@@ -6,7 +6,6 @@ module CleanSearch
         def find(conditions = {})
         end
 
-        # Define on self, since it's a class method
         def method_missing(method_sym, *arguments, &block)
           # the first argument is a Symbol, so you need to_s it if you want to pattern match
           if method_sym.to_s =~ /^find_(.*)$/
