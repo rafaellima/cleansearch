@@ -7,11 +7,11 @@ ActiveRecord::Base.establish_connection({
       :database => ":memory:"
 })
 
-#begin
-  #ActiveRecord::Schema.drop_table('users')
-#rescue
-  #nil
-#end
+begin
+  ActiveRecord::Schema.drop_table('users')
+rescue
+  nil
+end
 
 ActiveRecord::Schema.define do
   create_table "users", :force => true do |t|
@@ -30,13 +30,13 @@ RSpec.configure do |config|
     class User < ActiveRecord::Base
     end
     
-    #::User.destroy_all
+    ::User.destroy_all
     
   end
   
-  config.after(:each) do
-      Object.send(:remove_const, :User)
-    end
+  #config.after(:each) do
+      #Object.send(:remove_const, :User)
+    #end
   
 end
 
