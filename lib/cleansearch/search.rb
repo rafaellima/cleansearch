@@ -1,9 +1,7 @@
 module CleanSearch
   
-  #class Search
-    #include Base
-    #include Implementation
-    #include MethodMissing
-  #end
+  class Search 
+    include MethodMissing 
+  end
   
 end

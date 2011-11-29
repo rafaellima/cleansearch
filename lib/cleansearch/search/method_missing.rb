@@ -1,7 +1,10 @@
 module CleanSearch
-    
+    class Search
+      module MethodMissing
+      
         def find(conditions = {})
           #should make the logic
+          
         end
       
         def method_missing(method_sym, *arguments, &block)
@@ -19,6 +22,9 @@ module CleanSearch
               super
             end
         end
-  
+        
+        
+      end
+    end
 end
 
