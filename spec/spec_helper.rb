@@ -34,9 +34,9 @@ RSpec.configure do |config|
     
   end
   
-  #config.after(:each) do
-      #Object.send(:remove_const, :User)
-    #end
+  config.after(:each) do
+    Object.send(:remove_const, :User)
+  end
   
 end
 

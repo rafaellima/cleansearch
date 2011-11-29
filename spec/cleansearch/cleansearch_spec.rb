@@ -1,17 +1,14 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe 'dynamic find_first' do
+describe 'dynamic find' do
   
-  before :each do
-    @user = User.new
+  it 'should ensure that every object who inherit from activerecord is a kind of CleanSearch' do
+    User.should be_kind_of(CleanSearch)
   end
   
-  it 'should ensure that user (or any other object) is a kind of ActiveRecord::Base' do
-    @user.should be_kind_of(CleanSearch::Search)
-  end
-  
-  it 'should ensure that this object (user) has methods starting with find_ clause' do
-    @user.should_revieve(:find).with(:first_name => 'Foo')
+  it 'should call the custom method_missing' do
+    User.should_receive(:find).with(:first_name => 'Rafael')
+    User.find_first_name('Rafael')
   end
   
 end

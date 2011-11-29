@@ -1,13 +1,10 @@
 module CleanSearch
-  class Search
     
-    module MethodMissing
-      
         def find(conditions = {})
+          #should make the logic
         end
-
+      
         def method_missing(method_sym, *arguments, &block)
-          # the first argument is a Symbol, so you need to_s it if you want to pattern match
           if method_sym.to_s =~ /^find_(.*)$/
             find($1.to_sym => arguments.first)
           else
@@ -22,7 +19,6 @@ module CleanSearch
               super
             end
         end
-     end
-  end
   
 end
+
