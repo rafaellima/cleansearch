@@ -1,4 +1,5 @@
 require "cleansearch/search/method_missing"
+require "cleansearch/search/matcher"
 require "cleansearch/search"
 require 'active_record'
 
