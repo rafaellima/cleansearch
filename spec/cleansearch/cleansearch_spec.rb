@@ -7,8 +7,8 @@ describe 'dynamic find' do
   end
   
   it 'should call the custom method_missing' do
-    User.should_receive(:find).with(:first_name => 'Rafael')
-    User.find_first_name('Rafael')
+    User.should_receive(:find).with(:first_name => 'Foo')
+    User.find_first_name('Foo')
   end
   
 end

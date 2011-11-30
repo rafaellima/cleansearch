@@ -1,5 +1,6 @@
 = cleansearch
 
+CleanSearch goal is try to give us a simple way to make queries improving the ActiveRecord calls to the DB
 
 == Contributing to cleansearch
  
