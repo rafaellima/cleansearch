@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe 'system class behavior'
+describe 'system class behavior' do
   
   it 'should ensure that every object who inherit from activerecord has the association with CleanSearch::Search:MethodMissing' do
     User.should be_kind_of(CleanSearch::Search::MethodMissing)
