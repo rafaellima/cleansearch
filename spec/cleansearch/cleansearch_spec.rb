@@ -24,3 +24,10 @@ describe 'finder basic clauses' do
   
 end
 
+describe 'custom method_missing' do
+  
+  it 'should respond to the search_for method' do
+    User.should respond_to :find_by_something
+  end
+  
+end
